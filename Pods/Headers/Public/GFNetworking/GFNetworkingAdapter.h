@@ -1,0 +1,1 @@
+../../../GFNetworking/Pod/Classes/GFNetworking/GFNetworkingAdapter.h

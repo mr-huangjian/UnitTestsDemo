@@ -1,0 +1,97 @@
+// UIActivityIndicatorView+GFNetworking.m
+//
+// Copyright (c) 2013-2014 GFNetworking (http://afnetworking.com)
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+
+#import "UIActivityIndicatorView+GFNetworking.h"
+
+#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+
+#import "GFHTTPRequestOperation.h"
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+#import "GFURLSessionManager.h"
+#endif
+
+@implementation UIActivityIndicatorView (GFNetworking)
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
+- (void)setAnimatingWithStateOfTask:(NSURLSessionTask *)task {
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+
+    [notificationCenter removeObserver:self name:GFNetworkingTaskDidResumeNotification object:nil];
+    [notificationCenter removeObserver:self name:GFNetworkingTaskDidSuspendNotification object:nil];
+    [notificationCenter removeObserver:self name:GFNetworkingTaskDidCompleteNotification object:nil];
+
+    if (task) {
+        if (task.state != NSURLSessionTaskStateCompleted) {
+            if (task.state == NSURLSessionTaskStateRunning) {
+                [self startAnimating];
+            } else {
+                [self stopAnimating];
+            }
+
+            [notificationCenter addObserver:self selector:@selector(gf_startAnimating) name:GFNetworkingTaskDidResumeNotification object:task];
+            [notificationCenter addObserver:self selector:@selector(gf_stopAnimating) name:GFNetworkingTaskDidCompleteNotification object:task];
+            [notificationCenter addObserver:self selector:@selector(gf_stopAnimating) name:GFNetworkingTaskDidSuspendNotification object:task];
+        }
+    }
+}
+#endif
+
+#pragma mark -
+
+- (void)setAnimatingWithStateOfOperation:(GFURLConnectionOperation *)operation {
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+
+    [notificationCenter removeObserver:self name:GFNetworkingOperationDidStartNotification object:nil];
+    [notificationCenter removeObserver:self name:GFNetworkingOperationDidFinishNotification object:nil];
+
+    if (operation) {
+        if (![operation isFinished]) {
+            if ([operation isExecuting]) {
+                [self startAnimating];
+            } else {
+                [self stopAnimating];
+            }
+
+            [notificationCenter addObserver:self selector:@selector(gf_startAnimating) name:GFNetworkingOperationDidStartNotification object:operation];
+            [notificationCenter addObserver:self selector:@selector(gf_stopAnimating) name:GFNetworkingOperationDidFinishNotification object:operation];
+        }
+    }
+}
+
+#pragma mark -
+
+- (void)gf_startAnimating {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self startAnimating];
+    });
+}
+
+- (void)gf_stopAnimating {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self stopAnimating];
+    });
+}
+
+@end
+
+#endif

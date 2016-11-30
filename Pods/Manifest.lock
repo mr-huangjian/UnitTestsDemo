@@ -1,0 +1,30 @@
+PODS:
+  - GFNetworking (0.0.1)
+  - Kiwi (2.4.0)
+  - OCMock (3.3.1)
+  - STAlertView (1.0.0)
+
+DEPENDENCIES:
+  - GFNetworking (from `http://gitlab.bojoy.net/huangjian/GFNetworking.git`)
+  - Kiwi
+  - OCMock
+  - STAlertView
+
+EXTERNAL SOURCES:
+  GFNetworking:
+    :git: http://gitlab.bojoy.net/huangjian/GFNetworking.git
+
+CHECKOUT OPTIONS:
+  GFNetworking:
+    :commit: 72d878091b8b4ba30958f0f68f8f9135950d6f24
+    :git: http://gitlab.bojoy.net/huangjian/GFNetworking.git
+
+SPEC CHECKSUMS:
+  GFNetworking: 01f5799bc3c1c4a57e17c460e9a0b0b523148a5a
+  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
+  OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
+  STAlertView: bfcbdfed87dc7bfb35c04acd5d96aecebb923d48
+
+PODFILE CHECKSUM: c283eaf3bf715c2dddf77a5b206f6fdc674aab37
+
+COCOAPODS: 1.0.0

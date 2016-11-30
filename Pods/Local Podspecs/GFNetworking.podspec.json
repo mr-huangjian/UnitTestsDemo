@@ -1,0 +1,22 @@
+{
+  "name": "GFNetworking",
+  "version": "0.0.1",
+  "summary": "A more delightful networking framework.",
+  "description": "Adaptation of network service based on AFNetworking 2.5.0 for iOS 6 and above.",
+  "homepage": "http://gitlab.bojoy.net/huangjian/GFNetworking.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "huangjian": "mr.huangjian@foxmail.com"
+  },
+  "source": {
+    "git": "http://gitlab.bojoy.net/huangjian/GFNetworking.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source_files": "Pod/Classes/**/*"
+}
