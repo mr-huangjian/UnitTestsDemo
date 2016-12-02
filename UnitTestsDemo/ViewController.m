@@ -27,11 +27,43 @@
     // value in framework:      FMWK
     // value in app:            APPL
     
-    NSDictionary * infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    // NSDictionary * infoDictionary = [[NSBundle mainBundle] infoDictionary];
     
-    NSLog(@"infoDictionary:  %@", [infoDictionary objectForKey:@"CFBundlePackageType"]);
+    // NSLog(@"infoDictionary:  %@", [infoDictionary objectForKey:@"CFBundlePackageType"]);
     
-    NSLog(@"%d", [self appRunningOnDevice]);
+    // NSLog(@"%d", [self appRunningOnDevice]);
+    
+    NSLog(@"%@", [self readConfigurationFile:@"libConfig.json"]);
+    NSLog(@"%@", [self readConfigurationFile:@"libConfig.plist"]);
+}
+
+- (NSDictionary *)readConfigurationFile:(NSString *)name {
+
+    NSString * file = [[NSBundle mainBundle] pathForResource:name ofType:nil];
+    
+    if (file) {
+        NSString * ext = [file pathExtension];
+        
+        if ([ext isEqualToString:@"json"]) {
+            
+            NSData * data = [NSData dataWithContentsOfFile:file];
+            
+            NSError * error;
+            NSDictionary * object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+            
+            if (error == nil) {
+                return object;
+            }
+            
+        } else if ([ext isEqualToString:@"plist"]) {
+            
+            NSDictionary * object = [NSDictionary dictionaryWithContentsOfFile:file];
+            
+            return object;
+        }
+    }
+    
+    return nil;
 }
 
 - (BOOL)appRunningOnDevice {

@@ -13,6 +13,9 @@
 		7E0EEFE31DEFB9B7002379D7 /* PlaceInfoPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0EEFE21DEFB9B7002379D7 /* PlaceInfoPresenter.m */; };
 		7E3A5AC21DED33100016D4B0 /* UserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A5AC11DED33100016D4B0 /* UserTests.m */; };
 		7E3A5AC51DED331F0016D4B0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A5AC41DED331F0016D4B0 /* User.m */; };
+		7E3E69CA1DF1262000F89678 /* libConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E3E69C91DF1262000F89678 /* libConfig.json */; };
+		7E3E69CC1DF1297600F89678 /* libConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E3E69CB1DF1297600F89678 /* libConfig.plist */; };
+		7E3E69CE1DF13E2A00F89678 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3E69CD1DF13E2A00F89678 /* XCTest.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7E84FBF91DED2E3300AEC85E /* UnitTestsDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E84FBF81DED2E3300AEC85E /* UnitTestsDemoUITests.m */; };
 		7E96B1A91DED0DC90091EADA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E96B1A81DED0DC90091EADA /* main.m */; };
 		7E96B1AC1DED0DC90091EADA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E96B1AB1DED0DC90091EADA /* AppDelegate.m */; };
@@ -52,6 +55,9 @@
 		7E3A5AC11DED33100016D4B0 /* UserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTests.m; sourceTree = "<group>"; };
 		7E3A5AC31DED331F0016D4B0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		7E3A5AC41DED331F0016D4B0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		7E3E69C91DF1262000F89678 /* libConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = libConfig.json; sourceTree = "<group>"; };
+		7E3E69CB1DF1297600F89678 /* libConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = libConfig.plist; sourceTree = "<group>"; };
+		7E3E69CD1DF13E2A00F89678 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		7E84FBF61DED2E3300AEC85E /* UnitTestsDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestsDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E84FBF81DED2E3300AEC85E /* UnitTestsDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitTestsDemoUITests.m; sourceTree = "<group>"; };
 		7E84FBFA1DED2E3300AEC85E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E3E69CE1DF13E2A00F89678 /* XCTest.framework in Frameworks */,
 				31FC1F0559C24E534479D8BC /* libPods-UnitTestsDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +106,7 @@
 		6A6D33E797038A164BA64E79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E3E69CD1DF13E2A00F89678 /* XCTest.framework */,
 				3E40529471B76A6F995B5505 /* libPods-UnitTestsDemo.a */,
 			);
 			name = Frameworks;
@@ -160,6 +168,8 @@
 		7E96B1A71DED0DC90091EADA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7E3E69CB1DF1297600F89678 /* libConfig.plist */,
+				7E3E69C91DF1262000F89678 /* libConfig.json */,
 				7E96B1A81DED0DC90091EADA /* main.m */,
 			);
 			name = "Supporting Files";
@@ -307,6 +317,8 @@
 				7E96B1B71DED0DCB0091EADA /* LaunchScreen.storyboard in Resources */,
 				7E96B1B41DED0DCB0091EADA /* Assets.xcassets in Resources */,
 				7E96B1B21DED0DCA0091EADA /* Main.storyboard in Resources */,
+				7E3E69CC1DF1297600F89678 /* libConfig.plist in Resources */,
+				7E3E69CA1DF1262000F89678 /* libConfig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

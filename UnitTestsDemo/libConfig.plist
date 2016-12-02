@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>sdk_name</key>
+	<string>GFCollectSDK</string>
+	<key>sdk_version</key>
+	<string>0.0.1</string>
+	<key>sdk_brief</key>
+	<string>collect some user&apos;s behaviors</string>
+	<key>contact</key>
+	<dict>
+		<key>author</key>
+		<string>huangjian</string>
+		<key>email</key>
+		<string>mr.huangjian@foxmail.com</string>
+	</dict>
+</dict>
+</plist>
