@@ -1,10 +1,10 @@
 {
-    "description": "SDK配置相关信息",
-    "sdk_name": "GFCollectSDK",
-    "sdk_brief": "collect some user's behaviors",
-    "sdk_version": "0.0.1",
-    "contact": {
-        "author": "huangjian",
-        "email": "mr.huangjian@foxmail.com"
-    }
+  "contact" : {
+    "author" : "huangjian",
+    "email" : "mr.huangjian@foxmail.com"
+  },
+  "description" : "SDK配置相关信息",
+  "sdk_brief" : "collect some user's behaviors",
+  "sdk_name" : "GFCollectSDK",
+  "sdk_version" : "0.0.1"
 }
